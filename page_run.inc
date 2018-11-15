@@ -170,7 +170,7 @@ begin
       TargetZ := my_zval1 - 25;                          // auf max. Z begrenzen
       if -job.table_z > TargetZ then
         TargetZ := -job.table_z;
-      my_cmd:= 'G38.2 Z' + FloatToStrDot(TargetZ) + ' F200';
+      my_cmd:= 'G38.2 Z' + FloatToStrDot(TargetZ) + ' F50';
 
 
       my_response:= SendReceive(my_cmd, 0);
