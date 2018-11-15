@@ -182,6 +182,14 @@ begin
         exit;
       end;
 
+      if my_zval1 = 0 then begin
+        // when MESSAGE_PROBE_COORDINATES is not enabled in grbl's config.h,
+        // no automatic message with probe coordinates is generated, so we have
+        // to request the current position
+        my_response:= SendReceive('$#', 0);
+        grbl_receiveStr(25);
+        my_zval1:= extract_probe_pos(my_response);
+      end;
 
       // 2 mm abheben (falls möglich) und nochmal langsam
       if (my_zval1 + 2) > 0 then
@@ -203,6 +211,15 @@ begin
       else begin
         MachineState:= alarm;
         exit;
+      end;
+
+      if my_zval2 = 0 then begin
+        // when MESSAGE_PROBE_COORDINATES is not enabled in grbl's config.h,
+        // no automatic message with probe coordinates is generated, so we have
+        // to request the current position
+        my_response:= SendReceive('$#', 0);
+        grbl_receiveStr(25);
+        my_zval2:= extract_probe_pos(my_response);
       end;
 
       Form1.Memo1.lines.add('Probe contact at Z = ' + FloatToStr(my_zval2));
