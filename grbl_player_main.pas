@@ -3122,15 +3122,15 @@ var dx, dy, dz: Double;
       if length(s) > 6 then                 // nur wenn sich die Position ändert
         SendSingleCommandStr(s);
 
-      if not first_loop_done then
-        mdelay(300)
-      else
-        mdelay(100);
+//      if not first_loop_done then
+//        mdelay(300)
+//      else
+//        mdelay(100);
 
-//      if not first_loop_done then begin
-//        first_loop_done:= true;
-//        GetAsyncKeyState(VK_LBUTTON);
-//      end;
+      if not first_loop_done then begin
+        first_loop_done:= true;
+        GetAsyncKeyState(VK_LBUTTON);
+      end;
     until GetAsyncKeyState(VK_LBUTTON) = 0; // stop when mouse released
     Application.ProcessMessages;                // handle event on windows level
   end;
