@@ -200,7 +200,7 @@ begin
       fVideoImage.VideoStop;
   end;
   fActivated := false;
-  Form1.ShowSpindleCam1.Checked:= false;
+  //Form1.ShowSpindleCam1.Checked:= false;
 end;
 
 // #############################################################################
