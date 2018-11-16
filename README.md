@@ -4,7 +4,7 @@ Maker Media GmbH und c't, Heise Zeitschriften Verlag
 
 ***
 
-# GRBLize V1.4
+# GRBLize V1.5
 
 ### CNC-Steuerung für GRBL-JOG Projekt
 
